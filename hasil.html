@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Kelulusan</title>
+    <link rel="stylesheet" href="style-hasil.css">
+</head>
+<body>
+    <nav id="navbar">
+        <div id="pengumuman">
+            <h1 id="judul-pengumuman"></h1>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="content-box">
+            <div class="data-title" id="nama"></div>
+            <div class="data-subtitle" id="nim"></div>
+            <div class="data-info" id="pilihan"></div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <img id="unit-image" src="" alt="Unit Image">
+        <p id="selamat"></p>
+    </div>
+    
+    <script>
+        // Ambil data dari localStorage
+        const data = JSON.parse(localStorage.getItem("hasilKelulusan"));
+        const nav = document.getElementById("navbar");
+        const judulPengumuman = document.getElementById("judul-pengumuman");
+        const unitImage = document.getElementById("unit-image");
+        
+        // Set default image path
+        const defaultImage = "img/dinamika.jpg";
+        const mediaImage = "img/media.jpg";
+        const pengembanganImage = "img/pengembangan.jpg";
+        const dinamikaImage = "img/dinamika.jpg";
+        const internalImage = "img/internal.jpg";
+        
+        // Tampilkan data di halaman
+        if (data) {
+            // Menampilkan data
+            document.getElementById("nama").textContent = data.nama;
+            document.getElementById("nim").textContent = data.nim;
+            document.getElementById("pilihan").textContent = "Sub Unit PJK : " + data.pilihan;
+            
+            // Set appropriate image based on pilihan
+            if (data.pilihan === "Media Kreatif") {
+                unitImage.src = mediaImage;
+                unitImage.alt = "Media Kreatif Unit";
+            } else if (data.pilihan === "Pengembangan") {
+                unitImage.src = pengembanganImage;
+                unitImage.alt = "Pengembangan Unit";
+            } else if (data.pilihan === "Dinamika") {
+                unitImage.src = dinamikaImage;
+                unitImage.alt = "Dinamika Unit";
+            } else if (data.pilihan === "Internal") {
+                unitImage.src = internalImage;
+                unitImage.alt = "Internal Unit";
+            } else {
+                unitImage.src = defaultImage;
+                unitImage.alt = "Default Unit Image";
+            }
+            
+            // Menentukan status kelulusan
+            if (data.status === "LOLOS") {
+                document.getElementById("selamat").textContent = "Selamat, Anda sudah masuk Unit!";
+                nav.classList.add("nav-lulus");
+                judulPengumuman.textContent = "CONGRATS SURFIVEVOR!";
+                
+                if (data.pilihan === "Media Kreatif") {
+                    document.getElementById("selamat").textContent = "Selamat Kamu Telah Diterima Masuk di Media Kreatif!";
+                    if (data.nim === "I3401241070") {
+                        document.getElementById("selamat").textContent = "Selamat Kamu Telah Diterima Masuk di Kasub Media Kreatif!";
+                    }
+                } else if (data.pilihan === "Pengembangan") {
+                    document.getElementById("selamat").textContent = "Selamat Kamu Telah Diterima Masuk di Pengembangan!";
+                    if (data.nim === "I1401241068") {
+                        document.getElementById("selamat").textContent = "Selamat Kamu Telah Diterima Masuk di Kasub Pengembangan!";
+                    }
+                } else if (data.pilihan === "Dinamika") {
+                    document.getElementById("selamat").textContent = "Selamat Kamu Telah Diterima Masuk di Dinamika!";
+                    if (data.nim === "C1401241024") {
+                        document.getElementById("selamat").textContent = "Selamat Kamu Telah Diterima Masuk di Kasub Dinamika!";
+                    }
+                } else if (data.pilihan === "Internal") {
+                    document.getElementById("selamat").textContent = "Selamat Kamu Telah Diterima Masuk di Internal!";
+                    if (data.nim === "I2401241055") {
+                        document.getElementById("selamat").textContent = "Selamat Kamu Telah Diterima Masuk di Kasub Internal!";
+                    }
+                }
+            } else {
+                document.getElementById("selamat").textContent = "Maaf, Anda tidak lulus. Coba lagi tahun depan!";
+                nav.classList.add("nav-tidak-lulus");
+                judulPengumuman.textContent = "MOHON MAAF ANDA DINYATAKAN TIDAK LULUS SELEKSI WAWANCARA ORMAWA EKSEKUTIF PKU";
+                unitImage.style.display = "none"; // Hide image for not passing
+            }
+        } else {
+            // Jika data tidak ada di localStorage
+            document.body.innerHTML = "<h2 style='text-align: center; margin-top: 50px;'>Data tidak ditemukan. Silakan kembali ke halaman utama.</h2>";
+        }
+    </script>
+</body>
+</html>

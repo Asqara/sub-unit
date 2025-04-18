@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body{
+    font-family: "Poppins", serif;
+    font-optical-sizing: auto;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: #fcfcfc;
+    color: rgb(0, 0, 0);
+}
+nav{
+    background: linear-gradient(90deg, #2A6DF5, #87CEFA);
+    padding: 20px;
+    display: block;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+.container {
+    background: #ffffff;
+    color: #1f2937;
+    max-width: 600px;
+    margin: 20px auto;
+    margin-top: 35px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(64, 67, 143, 0.579);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+.container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 15px rgba(98, 121, 236, 0.727);
+}
+
+
+.data-title {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.data-subtitle {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: #000000;
+}
+
+.data-info {
+    font-size: 1.2rem;
+    color: #020101;
+}
+.footer {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #000000;
+    max-width: 600px;
+    justify-self: center;
+    padding: 10px;
+}
+.footer img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 15px;
+    max-height: 300px;
+}
+.nav-lulus {
+    background: linear-gradient(90deg, #2A6DF5, #87CEFA); /* Biru */
+}
+
+.nav-tidak-lulus {
+    background: linear-gradient(90deg, #a71616, #b24949); /* Merah */
+}
+
+/* Media Query untuk Tablet (ukuran layar maks 768px) */
+@media (max-width: 768px) {
+    .container {
+        margin-top: 5em; /* Kurangi margin atas agar tampil lebih rapi */
+    }
+
+    .content-box {
+        padding: 20px; /* Kurangi padding agar sesuai ukuran layar */
+        max-width: 90%; /* Gunakan hampir seluruh lebar layar */
+    }
+
+    .data-title {
+        font-size: 2.5rem; /* Kurangi ukuran font agar lebih proporsional */
+    }
+
+    .data-subtitle {
+        font-size: 1.3rem; 
+    }
+
+    .data-info {
+        font-size: 1rem;
+    }
+    .navbar{
+        padding: 10px;
+    }
+    .footer img {
+        max-height: 200px;
+    }
+}
+
+/* Media Query untuk HP (ukuran layar maks 480px) */
+@media (max-width: 480px) {
+    nav{
+        font-size: 1em; 
+        padding: 10px; /* Kurangi padding agar sesuai ukuran layar */
+    }
+    .info{
+        font-size: 0.7em; /* Kurangi ukuran font agar lebih proporsional */
+        margin-bottom: 5px; /* Kurangi margin bawah agar sesuai ukuran layar */
+    }
+    .container {
+        margin-top: 3em; /* Lebih kecil lagi di HP */
+    }
+
+    .content-box {
+        padding: 15px; /* Lebih kecil lagi padding */
+        border-radius: 10px; /* Kurangi border radius */
+        width: 95%; /* Gunakan hampir seluruh lebar layar */
+    }
+
+    .data-title {
+        font-size: 2rem; /* Font lebih kecil agar tetap pas */
+    }
+
+    .data-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .data-info {
+        font-size: 0.9rem;
+    }
+
+    .footer {
+        font-size: 0.8rem; /* Footer lebih kecil */
+    }
+    .navbar{
+        padding: 5px;
+    }
+}
